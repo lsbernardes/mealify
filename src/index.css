@@ -1,0 +1,11 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  min-height: 100vh;
+  background: linear-gradient(to top, #cf99ff, #6d00cc);
+  font-family: Poppins;
+  position: relative;
+}
