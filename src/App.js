@@ -1,18 +1,21 @@
-import { Fragment, useEffect } from 'react';
-import Header from './components/Header/Header';
+import { Fragment, useEffect, forwardRef } from 'react';
+import Header from './components/Header';
+import Container from './components/Container';
+import classes from './static/css/index.module.css';
 
-function App() {
-  const principal = true;
+const App = forwardRef((props, ref) => {
+  const card = [classes.card, classes.receita__card, classes.hidden];
+  const overlay = [classes.overlay__card, classes.hidden];
 
   return (
     <Fragment>
       <Header />
-      {/* <Container>
-        {principal && <Adicionar />}
-        {!principal && <Consultar />}
-      </Container> */}
+      <Container overlay={classes.overlay__card} />
+
+      <div className={card.join(' ')}></div>
+      <div ref={overlayRef} className={overlay.join(' ')}></div>
     </Fragment>
   );
-}
+})
 
 export default App;

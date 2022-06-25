@@ -13,10 +13,9 @@
   padding: 0 20px;
 }
 .nav img {
-  content: url(../../img/2515183.png);
-  width: 38px;
-  height: 38px;
+  content: url(../img/2515183.png);
   margin: 0;
+  max-height: 100%;
 }
 
 .index {
@@ -52,7 +51,7 @@
   opacity: 0.5;
   width: 100%;
   font: inherit;
-  background: url(../../img/search.png) no-repeat 0.7rem 50% #dfdfdf;
+  background: url(../img/search.png) no-repeat 0.7rem 50% #dfdfdf;
   padding-left: 3rem;
 }
 .card__busca:focus {
@@ -90,60 +89,7 @@
 .pagination__direita {
   cursor: pointer;
 }
-.overlay__card {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 5;
-}
-.receita__card {
-  position: relative;
-  padding: 0.7rem;
-  margin: 2rem auto;
-  width: 50rem;
-  /* max-width: 95%; */
-  z-index: 100;
-}
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  min-height: 70vh;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 5;
-  padding: 1rem;
-}
-.box {
-  position: absolute;
-  top: 20%;
-  left: 25%;
-  width: 50%;
-  height: 62%;
-  background-color: #cf99ff;
-  padding: 20px;
-  align-items: center;
-  justify-content: left;
-  z-index: 10;
-  box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
-  border-radius: 8px;
-}
-.box-add {
-  display: flex;
-  justify-content: left;
-  /* border: 3px solid #6d00cc; */
-  height: 80%;
-  margin: 10px;
-  padding: 10px;
-}
+
 .receita__dados {
   display: grid;
   grid-column: 2;
@@ -198,15 +144,6 @@ textarea:focus {
   height: 150px;
   font-family: inherit;
   font-size: 0.8rem;
-}
-.close {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  font-size: 2rem;
-  font-weight: bold;
-  cursor: pointer;
-  padding: 0 8px;
 }
 .group {
   margin-top: 10px;

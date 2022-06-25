@@ -1,0 +1,151 @@
+.index {
+  padding: 1rem;
+}
+.card__main {
+  display: grid;
+  place-content: center;
+  min-height: 70vh;
+  margin: 2rem auto;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  padding: 0.7rem;
+  margin: 2rem auto;
+  width: 50rem;
+  max-width: 95%;
+  background-color: #cf99ff;
+  border-radius: 8px;
+  border: 2px solid rgba(0, 0, 0, 0.06);
+  height: 100%;
+  min-height: 70vh;
+}
+.group {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.button {
+  text-decoration: none;
+  min-width: 180px;
+  padding: 30px 75px;
+  border-radius: 5px;
+  box-shadow: inset 0 0 0 0 #997cb3;
+  transition: ease-out 0.2s;
+  outline: none;
+  text-align: center;
+  font-size: 1.5rem;
+}
+.btnUm {
+  color: #fff;
+  background-color: rgb(80, 92, 104);
+  border: none;
+}
+.btnUm:hover {
+  transition: 0.4s;
+  background-color: rgba(91, 105, 118, 1);
+}
+.btnDois {
+  color: #000;
+  background-color: hsl(50, 100%, 50%);
+  border: none;
+}
+.btnDois:hover {
+  transition: 0.4s;
+  background-color: hsla(50, 100%, 79%, 1);
+}
+.box {
+  position: absolute;
+  top: 20%;
+  left: 25%;
+  width: 50%;
+  height: 62%;
+  background-color: #cf99ff;
+  padding: 20px;
+  align-items: center;
+  justify-content: left;
+  z-index: 10;
+  box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+}
+.box-add {
+  display: flex;
+  justify-content: left;
+  /* border: 3px solid #6d00cc; */
+  height: 80%;
+  margin: 10px;
+  padding: 10px;
+}
+.data {
+  font-family: inherit;
+}
+.comentario {
+  width: 600px;
+  height: 150px;
+  font-family: inherit;
+  font-size: 0.8rem;
+}
+input,
+textarea {
+  margin: 5px;
+  padding: 17px;
+  border: 0;
+  border-radius: 8px;
+  background-color: #dfdfdf;
+  box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
+}
+.box input[type='text'] {
+  font-family: inherit;
+  height: 35px;
+  width: 350px;
+  background-color: #dfdfdf;
+}
+.box input[type='text']:focus,
+textarea:focus {
+  outline: #6d00cc solid 2px;
+  background-color: #fff;
+}
+.data {
+  font-family: inherit;
+}
+.box input[type='date']::-webkit-calendar-picker-indicator {
+  width: 15px;
+  padding: 0px;
+  margin: 0px;
+  margin-top: 10px;
+}
+.box input[type='submit'] {
+  font-family: inherit;
+  padding: 10px 17px;
+  border: none;
+  margin: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.box input[type='submit']:hover {
+  transition: 0.4s;
+  background-color: #6d00cc;
+  opacity: 90%;
+  color: #fff;
+}
+.alert {
+  display: inline;
+  margin-left: 15%;
+  background-color: rgb(242, 254, 108);
+  border-radius: 10px;
+  padding: 5px 30px;
+}
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 2rem;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 0 8px;
+}
+.hidden {
+  display: none;
+}
