@@ -1,15 +1,20 @@
 import classes from '../static/css/Container.module.css';
-import Principal from './Principal';
+import { Fragment, useState, useRef } from 'react';
+
 import Consultar from './Consultar';
+import Escolha from './Escolha';
+import Adicionar from './Adicionar';
 
 const Container = (props) => {
-  const principal = true;
+  const [modal, modalHandler] = useState(false);
 
   return (
-    <div className={classes.container}>
-      {principal && <Principal overlay={props.overlay} />}
-      {!principal && <Consultar />}
-    </div>
+    <Fragment>
+      <div className={classes.container}>
+        {!modal && <Escolha modal={modalHandler} toggle={props.toggle} />}
+        {modal && <Adicionar modal={modalHandler} toggle={props.toggle} />}
+      </div>
+    </Fragment>
   );
 };
 

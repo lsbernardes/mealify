@@ -4,6 +4,8 @@
   box-sizing: border-box;
 }
 body {
+  margin: 0;
+  padding: 0;
   min-height: 100vh;
   background: linear-gradient(to top, #cf99ff, #6d00cc);
   font-family: Poppins;
@@ -55,6 +57,7 @@ body {
 }
 .overlay__card {
   position: absolute;
+  margin-top: 0;
   top: 0;
   left: 0;
   width: 100%;
