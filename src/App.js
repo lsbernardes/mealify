@@ -9,13 +9,18 @@ const App = (props) => {
   const [overlayMode, setOverlayMode] = useState(false);
 
   const toggleOverlay = () => {
+    console.log(overlayMode);
     setOverlayMode(!overlayMode);
   };
 
   return (
     <Fragment>
       <Header />
-      <Container overlay={classes.overlay__card} toggle={toggleOverlay} />
+      <Container
+        overlay={classes.overlay__card}
+        valueModal={overlayMode}
+        toggle={toggleOverlay}
+      />
 
       <div className={card.join(' ')}></div>
       <div

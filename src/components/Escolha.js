@@ -1,13 +1,9 @@
 import classes from '../static/css/Adicionar.module.css';
+import { Fragment, useEffect } from 'react';
 
 const Escolha = (props) => {
   const classesBtnUm = [classes.button, classes.btnUm];
   const classesBtnDois = [classes.button, classes.btnDois];
-
-  const ligarModal = (event) => {
-    props.modal(true);
-    props.toggle();
-  };
 
   return (
     <div className={classes.index}>
@@ -16,7 +12,7 @@ const Escolha = (props) => {
         <div className={classes.group}>
           <button
             id="add"
-            onClick={ligarModal}
+            onClick={props.toggle}
             className={classesBtnUm.join(' ')}
             value="Adicionar"
           >

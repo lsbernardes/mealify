@@ -17,7 +17,6 @@ const Adicionar = (props) => {
   const fecharModal = () => {
     box.current.classList.add(classes.hidden);
     alerta.current.classList.add(classes.hidden);
-    props.modal(false);
     props.toggle();
   };
 
