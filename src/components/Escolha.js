@@ -1,5 +1,4 @@
 import classes from '../static/css/Adicionar.module.css';
-import { Fragment, useEffect } from 'react';
 
 const Escolha = (props) => {
   const classesBtnUm = [classes.button, classes.btnUm];

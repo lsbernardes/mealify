@@ -1,4 +1,4 @@
-import { Fragment, useState, useEffect, useRef } from 'react';
+import { Fragment, useEffect, useRef } from 'react';
 import classes from '../static/css/Adicionar.module.css';
 
 const Adicionar = (props) => {
