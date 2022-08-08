@@ -1,0 +1,28 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  padding: 0.7rem;
+  margin: 2rem auto;
+  width: 50rem;
+  max-width: 95%;
+  background-color: #cf99ff;
+  border-radius: 8px;
+  border: 2px solid rgba(0, 0, 0, 0.06);
+  height: 100%;
+  min-height: 70vh;
+}
+.wrapper {
+  position: relative;
+  /* display: flex; */
+  /* align-items: center;
+  justify-content: center; */
+}
+#voltar {
+  /* float: right; */
+  position: absolute;
+  display: inline-block;
+  left: 90%;
+  top: 90%;
+  background: url(/media/data/texto/informatica/coding/projetos/my-meal/src/static/img/favpng_return-icon.png)
+    no-repeat 0.7rem 50%;
+}

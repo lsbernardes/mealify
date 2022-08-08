@@ -5,7 +5,7 @@ const Escolha = (props) => {
   const classesBtnDois = [classes.button, classes.btnDois];
 
   return (
-    <div className={classes.index}>
+    <div className={`${classes.index} ${props.consultar && classes.hidden}`}>
       <div className={classes.card__main}>
         <h2>Escolha uma opção:</h2>
         <div className={classes.group}>
@@ -17,7 +17,12 @@ const Escolha = (props) => {
           >
             Adicionar
           </button>
-          <button className={classesBtnDois.join(' ')}>Consultar</button>
+          <button
+            className={classesBtnDois.join(' ')}
+            onClick={props.onConsultar}
+          >
+            Consultar
+          </button>
         </div>
       </div>
     </div>
