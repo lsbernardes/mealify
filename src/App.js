@@ -1,8 +1,8 @@
-import { Fragment, useState, useEffect } from 'react';
-import Header from './components/Header';
-import Container from './components/Container';
-import classes from './static/css/index.module.css';
-import recuperarDados from './components/Helpers';
+import { Fragment, useState, useEffect } from "react";
+import Header from "./components/Header";
+import Container from "./components/Container";
+import classes from "./static/css/index.module.css";
+import { recuperarDados } from "./components/Helpers";
 
 const App = (props) => {
   const card = [classes.card, classes.receita__card, classes.hidden];
@@ -14,7 +14,12 @@ const App = (props) => {
     setOverlayMode(!overlayMode);
   };
 
-  useEffect(() => recuperarDados(), []);
+  useEffect(() => {
+    const temp = async () => {
+      recuperarDados(setState);
+    };
+    temp();
+  }, []);
 
   return (
     <Fragment>
@@ -26,11 +31,11 @@ const App = (props) => {
         state={state}
       />
 
-      <div className={card.join(' ')}></div>
+      <div className={card.join(" ")}></div>
       <div
         onClick={toggleOverlay}
         hidden={!overlayMode}
-        className={overlay.join(' ')}
+        className={overlay.join(" ")}
       ></div>
     </Fragment>
   );

@@ -1,19 +1,18 @@
-import classes from '../static/css/Consultar.module.css';
-import Items from './Items';
-// import { useState } from 'react';
+import classes from "../static/css/Consultar.module.css";
+import Items from "./Items";
+import Pagination from "./Pagination";
+import { useState } from "react";
 
 const Consultar = (props) => {
-  const paginationContainer = [classes.container__pagination, classes.hidden];
   const inputClasses = [
     classes.busca__texto,
     classes.card__busca,
     classes.card__siblings,
   ];
-  const receitas = props.state ? props.state : 'Nada';
+  const receitas = props.state || "Nada";
   let dados = false;
 
-  // const [consulta, setConsulta] = useState(false);
-  // const consultarHandler = () => setConsulta(!consulta);
+  const [paginaAtual, setPaginaAtual] = useState(1);
 
   const filtrar = (evento) => {
     dados = !evento.target.value
@@ -23,22 +22,27 @@ const Consultar = (props) => {
         });
   };
 
+  const pagHandler = (pagina) => {
+    setPaginaAtual(pagina);
+  };
+
   return (
     <div className={classes.wrapper}>
       <div className={classes.card}>
         <input
           type="text"
-          className={inputClasses.join(' ')}
+          className={inputClasses.join(" ")}
           placeholder="buscar"
           onChange={filtrar}
         ></input>
-        <Items className={classes.container__receitas} dados={dados} />
-        <div className={paginationContainer.join(' ')}>
-          <div className={classes.pagination__esquerda}></div>
-          <div className={classes.pagination__direita}></div>
-        </div>
+        <Items
+          className={classes.container__receitas}
+          dados={dados}
+          pagina={paginaAtual}
+        />
+        <Pagination dados={dados} pagina={paginaAtual} handler={pagHandler} />
       </div>
-      <div id={classes.voltar} className={classes.image} />
+      {/* <div id={classes.voltar} className={classes.image} /> */}
     </div>
   );
 };
