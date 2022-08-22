@@ -1,6 +1,6 @@
-import classes from "../static/css/Consultar.module.css";
-import { useState, useEffect } from "react";
-import { maxReceitas } from "./Helpers";
+import classes from '../static/css/Consultar.module.css';
+import { useState, useEffect } from 'react';
+import { maxReceitas } from './Helpers';
 
 const Pagination = (props) => {
   const paginationContainer = [classes.container__pagination, classes.hidden];
@@ -13,15 +13,15 @@ const Pagination = (props) => {
 
   const pagNumero = (orientation) => {
     const numeroPaginas = Math.ceil(props.dados.length / maxReceitas);
-    if (orientation === "direita" && pagination.estado) {
+    if (orientation === 'direita' && pagination.estado) {
       return pagination.paginaAtual === numeroPaginas
-        ? ""
+        ? ''
         : `${pagination.paginaAtual + 1}`;
-    } else if (orientation === "esquerda") {
+    } else if (orientation === 'esquerda') {
       return pagination.paginaAtual === 1
-        ? ""
+        ? ''
         : `${pagination.paginaAtual - 1}`;
-    } else return "";
+    } else return '';
   };
 
   useEffect(() => {
@@ -39,14 +39,11 @@ const Pagination = (props) => {
   }, [props.dados, props.pagina]);
 
   return (
-    <div
-      visibility={pagination.estado}
-      className={paginationContainer.join(" ")}
-    >
+    <div hidden={pagination.estado} className={paginationContainer.join(' ')}>
       <div className={classes.pagination__esquerda}>
-        {pagNumero("esquerda")}
+        {pagNumero('esquerda')}
       </div>
-      <div className={classes.pagination__direita}>{pagNumero("direita")}</div>
+      <div className={classes.pagination__direita}>{pagNumero('direita')}</div>
     </div>
   );
 };

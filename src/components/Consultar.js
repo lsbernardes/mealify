@@ -1,7 +1,7 @@
-import classes from "../static/css/Consultar.module.css";
-import Items from "./Items";
-import Pagination from "./Pagination";
-import { useState } from "react";
+import classes from '../static/css/Consultar.module.css';
+import Items from './Items';
+import Pagination from './Pagination';
+import { useState } from 'react';
 
 const Consultar = (props) => {
   const inputClasses = [
@@ -9,7 +9,7 @@ const Consultar = (props) => {
     classes.card__busca,
     classes.card__siblings,
   ];
-  const receitas = props.state || "Nada";
+  const receitas = props.state || 'Nada';
   let dados = false;
 
   const [paginaAtual, setPaginaAtual] = useState(1);
@@ -31,13 +31,13 @@ const Consultar = (props) => {
       <div className={classes.card}>
         <input
           type="text"
-          className={inputClasses.join(" ")}
+          className={inputClasses.join(' ')}
           placeholder="buscar"
           onChange={filtrar}
         ></input>
         <Items
           className={classes.container__receitas}
-          dados={dados}
+          dados={props.state}
           pagina={paginaAtual}
         />
         <Pagination dados={dados} pagina={paginaAtual} handler={pagHandler} />
