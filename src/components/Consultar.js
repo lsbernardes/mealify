@@ -1,7 +1,8 @@
 import classes from '../static/css/Consultar.module.css';
 import Items from './Items';
 import Pagination from './Pagination';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { maxReceitas } from './Helpers';
 
 const Consultar = (props) => {
   const inputClasses = [
@@ -9,22 +10,45 @@ const Consultar = (props) => {
     classes.card__busca,
     classes.card__siblings,
   ];
-  const receitas = props.state || 'Nada';
-  let dados = false;
 
+  console.log(props.state);
   const [paginaAtual, setPaginaAtual] = useState(1);
+  const [filtrado, setFiltrado] = useState(props.state);
+  const [pagination, setPagination] = useState(true);
 
-  const filtrar = (evento) => {
-    dados = !evento.target.value
-      ? receitas
-      : receitas.filter((receita) => {
-          return receita.nome.includes(evento.target.value);
-        });
+  const filtroHandler = (evento, pagina = false) => {
+    let dados;
+    if (pagina) {
+      const inicio = (pagina - 1) * maxReceitas;
+      const fim = pagina * maxReceitas;
+      dados = props.state.slice(inicio, fim);
+    } else {
+      dados = !evento.target.value
+        ? props.state
+        : props.state.filter((receita) => {
+            return receita.nome
+              .toLowerCase()
+              .includes(evento.target.value.toLowerCase());
+          });
+    }
+
+    console.log(pagina, dados);
+    setFiltrado(dados);
+    dados.length <= maxReceitas && !pagina
+      ? setPagination(false)
+      : setPagination(true);
   };
 
   const pagHandler = (pagina) => {
-    setPaginaAtual(pagina);
+    const temp = pagina === 'direita' ? paginaAtual + 1 : paginaAtual - 1;
+    setPaginaAtual(temp);
+    filtroHandler(false, temp);
+    console.log(pagina, temp);
   };
+
+  useEffect(() => {
+    console.log(paginaAtual);
+  }, [paginaAtual, filtrado]);
 
   return (
     <div className={classes.wrapper}>
@@ -33,14 +57,19 @@ const Consultar = (props) => {
           type="text"
           className={inputClasses.join(' ')}
           placeholder="buscar"
-          onChange={filtrar}
+          onChange={filtroHandler}
         ></input>
         <Items
           className={classes.container__receitas}
-          dados={props.state}
+          dados={filtrado}
           pagina={paginaAtual}
         />
-        <Pagination dados={dados} pagina={paginaAtual} handler={pagHandler} />
+        <Pagination
+          visivel={pagination}
+          dados={props.state}
+          pagina={paginaAtual}
+          handler={pagHandler}
+        />
       </div>
       {/* <div id={classes.voltar} className={classes.image} /> */}
     </div>

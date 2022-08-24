@@ -3,9 +3,11 @@ import { useState, useEffect } from 'react';
 import { maxReceitas } from './Helpers';
 
 const Pagination = (props) => {
-  const paginationContainer = [classes.container__pagination, classes.hidden];
+  const style = { marginTop: 'auto' };
+  const direita = () => props.handler('direita');
+  const esquerda = () => props.handler('esquerda');
   const [pagination, setPagination] = useState({
-    estado: false,
+    estado: props.dele,
     paginaAtual: props.pagina,
     inicio: 1,
     fim: 4,
@@ -16,11 +18,11 @@ const Pagination = (props) => {
     if (orientation === 'direita' && pagination.estado) {
       return pagination.paginaAtual === numeroPaginas
         ? ''
-        : `${pagination.paginaAtual + 1}`;
+        : `página ${pagination.paginaAtual + 1}`;
     } else if (orientation === 'esquerda') {
       return pagination.paginaAtual === 1
         ? ''
-        : `${pagination.paginaAtual - 1}`;
+        : `página ${pagination.paginaAtual - 1}`;
     } else return '';
   };
 
@@ -36,14 +38,18 @@ const Pagination = (props) => {
         fim,
       });
     }
-  }, [props.dados, props.pagina]);
+  }, [props.dados, props.pagina, props.visivel]);
 
   return (
-    <div hidden={pagination.estado} className={paginationContainer.join(' ')}>
-      <div className={classes.pagination__esquerda}>
-        {pagNumero('esquerda')}
+    <div hidden={!props.visivel} style={style}>
+      <div className={classes.container__pagination}>
+        <div onClick={esquerda} className={classes.pagination__esquerda}>
+          {pagNumero('esquerda')}
+        </div>
+        <div onClick={direita} className={classes.pagination__direita}>
+          {pagNumero('direita')}
+        </div>
       </div>
-      <div className={classes.pagination__direita}>{pagNumero('direita')}</div>
     </div>
   );
 };
