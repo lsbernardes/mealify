@@ -10,18 +10,28 @@ const Consultar = (props) => {
     classes.card__busca,
     classes.card__siblings,
   ];
+  const maxHandler = (pagina) => {
+    const inicio = (pagina - 1) * maxReceitas;
+    const fim = pagina * maxReceitas;
+    return { inicio, fim };
+  };
 
-  console.log(props.state);
   const [paginaAtual, setPaginaAtual] = useState(1);
-  const [filtrado, setFiltrado] = useState(props.state);
+  const [filtrado, setFiltrado] = useState(
+    props.state.slice(
+      maxHandler(paginaAtual).inicio,
+      maxHandler(paginaAtual).fim
+    )
+  );
   const [pagination, setPagination] = useState(true);
 
   const filtroHandler = (evento, pagina = false) => {
     let dados;
     if (pagina) {
-      const inicio = (pagina - 1) * maxReceitas;
-      const fim = pagina * maxReceitas;
-      dados = props.state.slice(inicio, fim);
+      dados = props.state.slice(
+        maxHandler(pagina).inicio,
+        maxHandler(pagina).fim
+      );
     } else {
       dados = !evento.target.value
         ? props.state
@@ -43,12 +53,11 @@ const Consultar = (props) => {
     const temp = pagina === 'direita' ? paginaAtual + 1 : paginaAtual - 1;
     setPaginaAtual(temp);
     filtroHandler(false, temp);
-    console.log(pagina, temp);
   };
 
   useEffect(() => {
     console.log(paginaAtual);
-  }, [paginaAtual, filtrado]);
+  }, [paginaAtual]);
 
   return (
     <div className={classes.wrapper}>
