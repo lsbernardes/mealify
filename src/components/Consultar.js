@@ -1,21 +1,11 @@
 import classes from '../static/css/Consultar.module.css';
 import Items from './Items';
+import Item from './Item';
 import Pagination from './Pagination';
-import { useEffect, useState } from 'react';
-import { maxReceitas } from './Helpers';
+import { useState } from 'react';
+import { maxReceitas, maxHandler } from './Helpers';
 
 const Consultar = (props) => {
-  const inputClasses = [
-    classes.busca__texto,
-    classes.card__busca,
-    classes.card__siblings,
-  ];
-  const maxHandler = (pagina) => {
-    const inicio = (pagina - 1) * maxReceitas;
-    const fim = pagina * maxReceitas;
-    return { inicio, fim };
-  };
-
   const [paginaAtual, setPaginaAtual] = useState(1);
   const [filtrado, setFiltrado] = useState(
     props.state.slice(
@@ -24,6 +14,12 @@ const Consultar = (props) => {
     )
   );
   const [pagination, setPagination] = useState(true);
+  const [ItemVisible, setItemVisible] = useState(false);
+  const inputClasses = [
+    classes.busca__texto,
+    classes.card__busca,
+    classes.card__siblings,
+  ];
 
   const filtroHandler = (evento, pagina = false) => {
     let dados;
@@ -42,7 +38,6 @@ const Consultar = (props) => {
           });
     }
 
-    console.log(pagina, dados);
     setFiltrado(dados);
     dados.length <= maxReceitas && !pagina
       ? setPagination(false)
@@ -55,31 +50,34 @@ const Consultar = (props) => {
     filtroHandler(false, temp);
   };
 
-  useEffect(() => {
-    console.log(paginaAtual);
-  }, [paginaAtual]);
+  const carregarItem = () => {
+    setItemVisible(true);
+  };
 
   return (
     <div className={classes.wrapper}>
-      <div className={classes.card}>
-        <input
-          type="text"
-          className={inputClasses.join(' ')}
-          placeholder="buscar"
-          onChange={filtroHandler}
-        ></input>
-        <Items
-          className={classes.container__receitas}
-          dados={filtrado}
-          pagina={paginaAtual}
-        />
-        <Pagination
-          visivel={pagination}
-          dados={props.state}
-          pagina={paginaAtual}
-          handler={pagHandler}
-        />
-      </div>
+      {!ItemVisible && (
+        <div className={classes.card}>
+          <input
+            type="text"
+            className={inputClasses.join(' ')}
+            placeholder="buscar"
+            onChange={filtroHandler}
+          ></input>
+          <Items
+            className={classes.container__receitas}
+            dados={filtrado}
+            pagina={paginaAtual}
+          />
+          <Pagination
+            visivel={pagination}
+            dados={props.state}
+            pagina={paginaAtual}
+            handler={pagHandler}
+          />
+        </div>
+      )}
+      {ItemVisible && <Item className={classes.card} toggle={carregarItem} />}
       {/* <div id={classes.voltar} className={classes.image} /> */}
     </div>
   );

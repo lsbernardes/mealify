@@ -1,5 +1,11 @@
 const maxReceitas = 4;
 
+const maxHandler = (pagina) => {
+  const inicio = (pagina - 1) * maxReceitas;
+  const fim = pagina * maxReceitas;
+  return { inicio, fim };
+};
+
 const fetchHandler = async (url, post = false) => {
   const res = !post
     ? await fetch(url, { mode: 'cors' })
@@ -19,4 +25,4 @@ const recuperarDados = async (handler) => {
   return dadosOrdenados;
 };
 
-export { recuperarDados, maxReceitas };
+export { recuperarDados, maxReceitas, maxHandler };
