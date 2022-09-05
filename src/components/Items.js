@@ -15,7 +15,13 @@ const Items = (props) => {
       {props.dados.map((receita) => {
         const dia = diferData(receita.data);
         return (
-          <div className={classes.receita} key={receita._id}>
+          <div
+            onClick={() => {
+              props.pegarItem(receita._id);
+            }}
+            className={classes.receita}
+            key={receita._id}
+          >
             <div className={card.join(' ')}>{receita.nome}</div>
             <div className={card.join(' ')}>{dia}</div>
           </div>

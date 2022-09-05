@@ -20,6 +20,7 @@ const Consultar = (props) => {
     classes.card__busca,
     classes.card__siblings,
   ];
+  const [itemSingular, setItemSingular] = useState();
 
   const filtroHandler = (evento, pagina = false) => {
     let dados;
@@ -50,8 +51,12 @@ const Consultar = (props) => {
     filtroHandler(false, temp);
   };
 
-  const carregarItem = () => {
+  const carregarItem = (key) => {
+    const itemData = filtrado.filter((receita) => {
+      return receita._id === key && receita;
+    });
     setItemVisible(true);
+    setItemSingular(itemData[0]);
   };
 
   return (
@@ -68,6 +73,7 @@ const Consultar = (props) => {
             className={classes.container__receitas}
             dados={filtrado}
             pagina={paginaAtual}
+            pegarItem={carregarItem}
           />
           <Pagination
             visivel={pagination}
@@ -77,7 +83,7 @@ const Consultar = (props) => {
           />
         </div>
       )}
-      {ItemVisible && <Item className={classes.card} toggle={carregarItem} />}
+      {ItemVisible && <Item className={classes.card} item={itemSingular} />}
       {/* <div id={classes.voltar} className={classes.image} /> */}
     </div>
   );
