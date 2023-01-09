@@ -4,29 +4,37 @@
   min-height: 10vh;
   margin: 10px 20px;
 }
+
 .nav a {
   text-decoration: none;
 }
+
 .nav h1 {
   color: aliceblue;
   font-family: Poppins;
   padding: 0 20px;
 }
+
 .nav img {
-  content: url(../img/2515183.png);
+  content: url(../img/mealify.png);
   margin: 0;
-  max-height: 100%;
+  width: 100%;
+  max-width: 300px;
+  height: 100%;
+  min-height: auto;
 }
 
 .index {
   padding: 1rem;
 }
+
 .card__main {
   display: grid;
   place-content: center;
   min-height: 70vh;
   margin: 2rem auto;
 }
+
 .card {
   display: flex;
   flex-direction: column;
@@ -40,13 +48,16 @@
   height: 100%;
   min-height: 70vh;
 }
+
 .card__siblings {
   padding: 0.8rem;
   margin: 0.1rem;
 }
+
 .card__interno {
   border-radius: 8px;
 }
+
 .card__busca {
   opacity: 0.5;
   width: 100%;
@@ -54,10 +65,12 @@
   background: url(../img/search.png) no-repeat 0.7rem 50% #dfdfdf;
   padding-left: 3rem;
 }
+
 .card__busca:focus {
   background-color: #fff;
   opacity: 0.5;
 }
+
 .receita {
   display: flex;
   justify-content: space-between;
@@ -66,17 +79,20 @@
   border-radius: 8px;
   font-size: 1.1rem;
 }
+
 .receita:hover {
   background-color: #e2c4fd;
   cursor: pointer;
   transition: 0.3s;
 }
+
 .container__receitas {
   display: flex;
   flex-direction: column;
   margin-top: 10px;
   flex-grow: 1;
 }
+
 .container__pagination {
   display: flex;
   justify-content: space-between;
@@ -85,6 +101,7 @@
   padding: 0 10px;
   height: 40px;
 }
+
 .pagination__esquerda,
 .pagination__direita {
   cursor: pointer;
@@ -96,6 +113,7 @@
   grid-template-columns: 50% 50%;
   padding: 1rem 2rem;
 }
+
 input,
 textarea {
   margin: 5px;
@@ -105,26 +123,31 @@ textarea {
   background-color: #dfdfdf;
   box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
 }
+
 .box input[type='text'] {
   font-family: inherit;
   height: 35px;
   width: 350px;
   background-color: #dfdfdf;
 }
+
 .box input[type='text']:focus,
 textarea:focus {
   outline: #6d00cc solid 2px;
   background-color: #fff;
 }
+
 .data {
   font-family: inherit;
 }
+
 .box input[type='date']::-webkit-calendar-picker-indicator {
   width: 15px;
   padding: 0px;
   margin: 0px;
   margin-top: 10px;
 }
+
 .box input[type='submit'] {
   font-family: inherit;
   padding: 10px 17px;
@@ -133,18 +156,21 @@ textarea:focus {
   border-radius: 10px;
   cursor: pointer;
 }
+
 .box input[type='submit']:hover {
   transition: 0.4s;
   background-color: #6d00cc;
   opacity: 90%;
   color: #fff;
 }
+
 .comentario {
   width: 600px;
   height: 150px;
   font-family: inherit;
   font-size: 0.8rem;
 }
+
 .group {
   margin-top: 10px;
   display: flex;
@@ -152,6 +178,7 @@ textarea:focus {
   flex-wrap: wrap;
   gap: 1rem;
 }
+
 .button {
   text-decoration: none;
   min-width: 180px;
@@ -163,6 +190,7 @@ textarea:focus {
   text-align: center;
   font-size: 1.5rem;
 }
+
 .alert {
   display: inline;
   margin-left: 15%;
@@ -170,30 +198,37 @@ textarea:focus {
   border-radius: 10px;
   padding: 5px 30px;
 }
+
 .btn-1 {
   color: #fff;
   background-color: rgb(80, 92, 104);
 }
+
 .btn-1:hover {
   transition: 0.4s;
   background-color: rgba(91, 105, 118, 1);
 }
+
 .btn-2 {
   color: #000;
   background-color: hsl(50, 100%, 50%);
 }
+
 .btn-2:hover {
   transition: 0.4s;
   background-color: hsla(50, 100%, 79%, 1);
 }
+
 .label {
   margin: 20px;
 }
+
 .container h2 {
   text-align: center;
   color: aliceblue;
   font-family: Poppins;
 }
+
 .hidden {
   display: none;
 }
